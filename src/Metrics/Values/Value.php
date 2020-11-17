@@ -43,8 +43,8 @@ abstract class Value extends NovaValue
     {
         $this->statistics->forEvent($this->event);
 
-        $result = $this->statistics->fromTo($this->currentRange($request->get('range')))->sum();
-        $previous = $this->statistics->fromTo($this->previousRange($request->get('range')))->sum();
+        $result = $this->statistics->fromTo($this->currentRange($request->get('range'), null))->sum();
+        $previous = $this->statistics->fromTo($this->previousRange($request->get('range'), null))->sum();
 
         return $this->result($result)->previous($previous);
     }
