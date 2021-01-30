@@ -4,8 +4,12 @@
     "keywords": [
         "laravel",
         "nova",
-        "mailgun"
+        "mailgun",
+        "palpalani",
+        "mailgun-metrics",
+        "nova-dashboard"
     ],
+    "homepage": "https://github.com/palpalani/nova-mailgun-metrics",
     "license": "MIT",
     "authors": [
         {
@@ -15,7 +19,7 @@
         }
     ],
     "require": {
-        "php": ">=7.1.0",
+        "php": "^7.4|^8.0",
         "guzzlehttp/guzzle": "^7.0",
         "kriswallsmith/buzz": "^1.1",
         "mailgun/mailgun-php": "dev-php-8.x-support",
