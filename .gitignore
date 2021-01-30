@@ -13,3 +13,4 @@ build
 coverage
 docs
 psalm.xml
+yarn.lock
