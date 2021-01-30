@@ -26,7 +26,7 @@ class CardServiceProvider extends ServiceProvider
             __DIR__ . '/../config/nova-mailgun.php' => config_path('nova-mailgun.php'),
         ]);
 
-        Nova::serving(function (ServingNova $event) {
+        Nova::serving(static function (ServingNova $event) {
             Nova::script('nova-mailgun', __DIR__.'/../dist/js/card.js');
             Nova::style('nova-mailgun', __DIR__.'/../dist/css/card.css');
         });
@@ -55,11 +55,11 @@ class CardServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(Mailgun::class, function () {
+        $this->app->bind(Mailgun::class, static function () {
             return Mailgun::create(config('nova-mailgun.api_key'));
         });
 
-        $this->app->bind(MailgunStatistic::class, function ($app) {
+        $this->app->bind(MailgunStatistic::class, static function ($app) {
             return new MailgunStatistic($app->make(Mailgun::class), config('nova-mailgun.domain'));
         });
     }
