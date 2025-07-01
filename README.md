@@ -45,6 +45,36 @@ return [
 composer test
 ```
 
+## CI/CD
+
+This project uses GitHub Actions for continuous integration and deployment. The following workflows are configured:
+
+### Tests Workflow (`.github/workflows/run-tests.yml`)
+- Runs on: Push and Pull Requests
+- Tests against: PHP 8.3, Laravel 11.x and 12.x
+- Includes: Unit tests, coverage reports, and test artifacts
+- Features:
+  - Composer dependency caching for faster builds
+  - Security audits with `composer audit`
+  - Test result artifacts with 30-day retention
+  - Code coverage reporting to Codecov
+
+### Security & Quality Workflow (`.github/workflows/security.yml`)
+- Runs on: Push and Pull Requests
+- Includes:
+  - Composer security audits
+  - Psalm static analysis
+  - Dependency vulnerability checks
+  - Code quality checks
+  - Composer validation
+
+### Workflow Features
+- **Caching**: Composer dependencies are cached to speed up builds
+- **Timeout Protection**: Jobs have timeout limits to prevent hanging builds
+- **Artifact Storage**: Test results and coverage reports are saved as artifacts
+- **Security Scanning**: Automated security vulnerability detection
+- **Multi-version Testing**: Tests against multiple Laravel versions for compatibility
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.

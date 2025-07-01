@@ -1,0 +1,19 @@
+# GitHub Actions configuration
+# This file enables security features and sets default permissions
+
+# Enable security features
+security:
+  # Enable Dependabot security updates
+  dependabot:
+    enabled: true
+  
+  # Enable code scanning
+  code-scanning:
+    enabled: true
+
+# Set default permissions for GitHub Actions
+permissions:
+  contents: read
+  pull-requests: read
+  security-events: write
+  actions: read 
